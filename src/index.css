@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #12201b;
+  --color-moss: #1a4535;
+  --color-leaf: #2a6b4e;
+  --color-mint: #b7dcc8;
+  --color-sand: #ebe4d7;
+  --color-paper: #f8f5ef;
+  --color-coral: #b85a40;
+  --color-slate: #5a6b64;
+  --color-line: color-mix(in srgb, #1a4535 12%, transparent);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(ellipse 70% 45% at 0% 0%, #d7ebe1 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 0%, #efe3d4 0%, transparent 50%),
+    linear-gradient(180deg, #f8f5ef 0%, #f3eee5 100%);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.65;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.panel {
+  background: color-mix(in srgb, white 82%, transparent);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+  background: var(--color-moss);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--color-moss);
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  padding: 0.65rem 1.1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.progress-track {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-moss) 10%, white);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-leaf);
+  transition: width 0.4s ease;
+}
